@@ -64,4 +64,17 @@ public class StringCalculatorTestCases {
 		assertEquals(sol.Add("//[***]\n1***2***3"), 6);
 		assertEquals(sol.Add("//[***]\n1***2***3,4"), 10);
 	}
+	
+	@Test
+	public void MultipleDelimitersAllowed()
+	{
+		assertEquals(sol.Add("//[*][%]\n1*2%3"), 6);
+		assertEquals(sol.Add("//[*][%]\n1*2%3,4"), 10);
+	}
+	
+	@Test
+	public void MultipleDelimitersMorethaoneCHAR()
+	{
+		assertEquals(sol.Add("//[**][%%]\n1**2%%3"), 6);
+	}
 }
