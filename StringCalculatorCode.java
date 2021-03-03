@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class StringCalculatorCode {
 	
@@ -8,12 +9,10 @@ public class StringCalculatorCode {
 			return 0;
 		}
  
-		if (input.contains(","))
-		{
-			return Integer.parseInt(input.split(",")[0].trim()) 
-					 + Integer.parseInt(input.split(",")[1].trim());
-		}
-		return Integer.parseInt(input);
+		return Arrays.stream(input.split(","))
+				.map(String::strip)
+				.mapToInt(Integer::parseInt)
+				.sum();
 	}
 
 }
