@@ -4,13 +4,20 @@ public class StringCalculatorCode {
 	
 	public int Add(String input)
 	{
-		if (input.length() == 0)
+		StringBuilder CustomRegex = new StringBuilder("\\n,");
+		StringBuilder output = new StringBuilder();
+		
+		if (input.startsWith("//"))
 		{
-			return 0;
+			CustomRegex.append(input, input.indexOf("//"), input.indexOf("\n"));
+			output.append(input.substring(input.indexOf("\n")).trim());
+		} else {
+			output.append(input);
 		}
  
-		return Arrays.stream(input.split("[,\n]"))
+		return Arrays.stream(output.toString().split("[" + CustomRegex + "]"))
 				.map(String::strip)
+				.filter(j -> !j.isBlank())
 				.mapToInt(Integer::parseInt)
 				.filter(n -> n < 1001)
 				.peek(n -> {
