@@ -48,4 +48,13 @@ public class StringCalculatorTestCases {
 	{
 		sol.Add("-1, -4, 1, -5");
 	}
+	
+	@Test
+	public void IgnoreNumbersbiggerthan1000()
+	{
+		assertEquals(sol.Add("1, 1001"), 1);
+		assertEquals(sol.Add("1, 1000"), 1001);
+		assertEquals(sol.Add("1001, 1001"), 0);
+		assertEquals(sol.Add("1000, 1000"), 2000);
+	}
 }
