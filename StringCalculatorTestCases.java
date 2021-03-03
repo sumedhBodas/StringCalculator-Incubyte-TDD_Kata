@@ -42,4 +42,10 @@ public class StringCalculatorTestCases {
 		assertEquals(sol.Add("1\n2\n3"), 6);
 		assertEquals(sol.Add("1,2\n3"), 6);
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void HandleNegativeNumbers()
+	{
+		sol.Add("-1, -4, 1, -5");
+	}
 }

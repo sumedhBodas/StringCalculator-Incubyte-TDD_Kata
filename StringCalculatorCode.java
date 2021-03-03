@@ -12,6 +12,9 @@ public class StringCalculatorCode {
 		return Arrays.stream(input.split("[,\n]"))
 				.map(String::strip)
 				.mapToInt(Integer::parseInt)
+				.peek(n -> {
+					if (n < 0) throw new IllegalArgumentException ("Negativesnot allowed: " + n);
+				})
 				.sum();
 	}
 
