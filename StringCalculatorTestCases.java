@@ -10,4 +10,21 @@ public class StringCalculatorTestCases {
 	{
 		assertEquals(sol.Add(""), 0);
 	}
+	
+	@Test
+	public void nonEmptyString()
+	{
+		assertEquals(sol.Add("0"), 0);
+		assertEquals(sol.Add("1"), 1);
+		assertEquals(sol.Add("2"), 2);
+	}
+	
+	@Test
+	public void CommaSeparatedString_returnsSum()
+	{
+		assertEquals(sol.Add("0,1"), 1);
+		assertEquals(sol.Add("0,0"), 0);
+		assertEquals(sol.Add("1,1"), 2);
+		assertEquals(sol.Add("1,2"), 3);
+	}
 }
